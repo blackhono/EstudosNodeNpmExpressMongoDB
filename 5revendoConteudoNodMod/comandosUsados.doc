@@ -1,0 +1,61 @@
+para iniciar o NPM
+npm init -y
+
+
+lembrese-se webpack é dependencia de desenvolvimento pois
+não é utilizado em produção já q o que vai ser usado lá seria o 
+BUNDLE gerado pelo webpack quando em desenvolvimento.
+
+
+exemplo de versão
+                  major   minor     patch
+    "webpack" : "^  4   .   41    .   2"
+
+Os simbolos na frente são muito importantes pois definem o que podem atualizar 
+e o que não podem.
+
+ com  ^ significa que só atualiza na minor e na patch 
+ com  ~  vai atualizar até o ultimo patch mas não ultrapassa o minor 
+ sem simbolo na frente você trava a versão.
+
+Todos os comandos aqui tem que ter escrito npm na chamada eim!
+
+
+para salvar algo como desenvolvimento é
+
+--save-dev
+
+caso queira desinstalar
+
+uninstall
+
+para ver só o que instalou 
+
+ls --depth=1
+
+ver pacotes desatualizados
+
+outdated
+
+para instalar versão desejada
+
+dependencia@versão algo tipo isso install webpack@17.4.3
+
+caso queira que fique uma versão especifica use o comando anterior com 
+
+-E 
+
+no final.
+
+Quando queremos a ultima versão de um MAJOR basta usar
+
+dependencia@versaoMajor.x  ficando tipo assim webpack@17.x              
+
+
+
+
+
+Se tiver instalado a dependencia em dev mas era de produção basta  usar
+install dependencia --save-prod
+também funciona inversamente 
+install dependencia --save-dev

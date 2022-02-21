@@ -1,0 +1,34 @@
+da para formar o json stringify
+
+usando este array de objetos como referencia:
+const pessoas = [
+    {nome:'Diego'},
+    {nome:'Nicole'},
+    {nome:'Nyu'},
+    {nome:'Rin'},
+    {nome:'Soma'},
+]
+
+
+                                               valor                      espaço da identação
+fs.writeFile(caminhoArquivo, JSON.stringify(  pessoas,         ''       ,         2          ), { flag: 'a'});
+
+o resultado fica assim:
+
+[
+  {
+    "nome": "Diego"
+  },
+  {
+    "nome": "Nicole"
+  },
+  {
+    "nome": "Nyu"
+  },
+  {
+    "nome": "Rin"
+  },
+  {
+    "nome": "Soma"
+  }
+]

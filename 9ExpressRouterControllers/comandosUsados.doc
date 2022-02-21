@@ -1,0 +1,8 @@
+npm init -y
+
+npm install express
+
+npm install nodemon --save-dev
+
+
+(criei o script do nodemon no package.json)
