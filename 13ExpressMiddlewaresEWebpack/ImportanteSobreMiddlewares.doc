@@ -1,0 +1,38 @@
+Um exemplo de utilização de middlewares
+vou pegar os dados do usuario para armazena-los
+em uma Session por exemplo.
+
+
+
+function meuMiddleware(req, res, next){
+    req.session = {nome: 'Diego', sobrenome: 'Lepamar'}
+    next();
+}
+
+na nossa rota agora ficaria assim:
+
+
+route.get('/', meuMiddleware, homeController.paginaInicial);
+
+
+e no homeController.paginaInicial teremos acesso a esses dados assim:
+
+module.exports.paginaInicial = (req, res) => {
+    res.render('index');
+    console.log(`Aqui temos o que passamos na ${req.session.nome}`)
+}
+
+Lembrando que o uso de next() é sempre necessário quando tiver
+que executar outro middleware a frente. Na ultima ação podemos
+colocar return assim finalizando a sequência de processo.
+
+Ali no console log veriamos o DIEGO que foi passado no middleware,
+bem legal isso, pois agora aquela informação pode ser utilizada na
+pagina daquela rota.
+
+nesse exemplo estamos trabalhando em apenas uma rota! Porém podemos
+fazer isso em no nosso arquivo server.js e trabalhar no nível
+de todas as rotas.
+
+
+
