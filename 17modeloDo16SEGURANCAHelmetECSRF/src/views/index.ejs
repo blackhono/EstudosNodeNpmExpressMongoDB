@@ -1,0 +1,28 @@
+<%- include('includes/head') %>
+
+    <section class="container">
+        <h1>
+            <!-- titulo usando de variavel local (controller -> variavel dentro de Locals.) -->
+            <!-- entrada de dado do EJS, o <%= %> é feito para usar JS no 'HTML'  -->
+            <% if(typeof variavelLocal.titulo !== 'undefined') { %>
+            <%= variavelLocal.titulo %>
+            <% } else { %>
+            O titulo não encontrado!
+            <% }  %>
+
+            <% variavelLocal.questao.forEach(el => { %>
+            <br><%= el.qst %> <br>
+            <%= el.input %>
+            <% }); %>
+
+            <%-  variavelLocalMeuMiddleware  %>
+        </h1>
+        <form action="/" method="post">
+            <label><%= variavelLocal.questao[0].qst %></label>
+            <input type="text" name="client">
+            <button type="submit">Submit</button>
+        </form>
+        <div class='cpf-gerado'></div>
+    </section>
+
+    <%- include('includes/footer') %>

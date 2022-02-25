@@ -1,0 +1,18 @@
+npm init -y
+
+npm install express
+
+npm install nodemon --save-dev
+
+
+(criei o script do nodemon no package.json)
+
+npm i ejs
+
+
+Nesse 12 eu vou usar o modelo de front que já tinha feito
+para acoplar nesse sistema.
+Então puxei as dependencias e tudo q precisava
+
+no script do nodemon coloquei para ignorar a pasta do front e a public
+pois o conteudo delas é de front.
