@@ -18,3 +18,9 @@ module.exports.checkCsrfError = (err, req, res, next) => {
         return res.render('404');
     }
 }
+
+module.exports.csrfMiddleware = (req, res, next) => {
+    //res.locals.csrfToken = req.csrfToken();
+    res.locals.csrfToken = req.csrfToken()
+    next();
+}

@@ -18,6 +18,7 @@
             <%-  variavelLocalMeuMiddleware  %>
         </h1>
         <form action="/" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken  %> ">
             <label><%= variavelLocal.questao[0].qst %></label>
             <input type="text" name="client">
             <button type="submit">Submit</button>

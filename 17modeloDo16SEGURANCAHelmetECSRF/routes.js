@@ -13,7 +13,7 @@ const errorController = require('./src/controllers/errorController');
 
 route.get('/', homeController.paginaInicial);
 //Metódos POST
-route.post('/',homeController.enviaFormulario);
+route.post('/', homeController.enviaFormulario);
 
 //Rotas Erro
 //Metódos GET

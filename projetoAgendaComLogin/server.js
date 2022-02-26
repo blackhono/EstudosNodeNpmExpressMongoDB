@@ -45,7 +45,7 @@ const sessionOptions= {
 app.use(session(sessionOptions));
 app.use(flash());
 
-//app.use(csrf());
+app.use(csrf());
 //app.use(bodyParser.urlencoded({extended:false}));
 
 
@@ -56,8 +56,8 @@ app.set('view engine', 'ejs');
 //app.use(cookieParser());
 
 app.use(meuMiddlewareGlobal);
-//app.use(csrfMiddleware);
-//app.use(checkCsrfError);
+app.use(csrfMiddleware);
+app.use(checkCsrfError);
 
 app.use(routes);
 
