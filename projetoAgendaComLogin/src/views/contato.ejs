@@ -40,7 +40,11 @@
                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
 --> <br>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <% if(contato._id) {%>
+          <button type="submit" class="btn btn-primary">Editar</button>
+          <%} else {%> 
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <%}%> 
       </form>
 
       <!-- div.resoponsive-table>table.table>tr>td* -->

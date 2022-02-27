@@ -31,8 +31,22 @@ const ContatoModel = mongoose.model(   'Contato'     ,  ContatoSchema   )
 
     static buscaPorId = async(id)=>{
         if(typeof id !== 'string') return;
-        const user = await ContatoModel.findById(id);
-        return user;
+        const contato = await ContatoModel.findById(id);
+        return contato;
+    }
+
+    //lembrando que da para fazer filtro no find mandando um objeto
+    //tipo ContatoModel.find({email:'emailprocurado'})
+    //mas no momento só quero a ordem de acordo com que foram criados
+    // 1 para crescente e -1 para decrescente
+    static buscaContatos = async()=>{
+        const contatos = await ContatoModel.find().sort({criadoEm: -1})
+        return contatos;
+    }
+    static delete = async(id)=>{
+        if(typeof id !== 'string') return;
+        const contato = await ContatoModel.findByIdAndDelete(id);
+        return contato;
     }
 
     async edit(id){
@@ -72,3 +86,8 @@ const ContatoModel = mongoose.model(   'Contato'     ,  ContatoSchema   )
 
 
 module.exports = Contato;
+
+
+
+//dica caso fosse findOne({_id:id, name:name})
+//quando usar findOne tem que dizer qual dado bate com qual chave do banco de dados.

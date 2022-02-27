@@ -34,7 +34,6 @@ module.exports.editIndex = async(req, res) => {
         if(!req.params.id) return res.render('404');
         const contato = await Contato.buscaPorId(req.params.id)
         if(!contato) return res.render('404');
-
         res.render('contato', { contato })
 
     } catch(e){
@@ -62,5 +61,26 @@ module.exports.edit = async(req, res) => {
         })
     } catch(e){
         console.log(e)
+    }
+}
+
+module.exports.delete = async(req, res) => {
+    try{
+        if(!req.params.id) return res.render('404');
+        const contato = await Contato.delete(req.params.id);
+        if(!contato){
+            req.flash('error', 'Contato não encontrado');
+            req.session.save(()=>{
+                res.redirect(`/`);
+                return;
+            })
+        }
+        req.flash('success', 'Contato excluido com sucesso');
+        req.session.save(()=>{
+            res.redirect(`/`);
+            return;
+        })
+    } catch(e){
+        console.log('cai aqui me levanta berg')
     }
 }
